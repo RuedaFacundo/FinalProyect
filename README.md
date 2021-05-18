@@ -1,9 +1,9 @@
 # FinalProyect
 
 
-** ENUNCIADO ** :book:
+**ENUNCIADO** :book:
 
-*** Sistema de administración de un hotel *** :hotel:
+***Sistema de administración de un hotel*** :hotel:
 
 El sistema deberá organizar un hotel, administrando sus habitaciones y los pasajeros/clientes del
 hotel. El sistema deberá permitir realizar reservas de habitaciones, hacer el check-in y

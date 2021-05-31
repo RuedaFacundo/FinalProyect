@@ -1,12 +1,12 @@
 package com.company;
 
-public class Recepcionist extends User {
+public class Receptionist extends User {
 
-    public Recepcionist (){
+    public Receptionist (){
         super();
     }
 
-    public Recepcionist (String name, String key, int dni, int phone, String email){
+    public Receptionist (String name, String key, int dni, int phone, String email){
         super(name, key, dni, phone, email);
     }
 

@@ -8,9 +8,10 @@ public abstract class User {
     private int phone;
     private String email;
 
-    public User (){}
+    public User() {
+    }
 
-    public User (String name, String key, int dni, int phone, String email){
+    public User(String name, String key, int dni, int phone, String email) {
         this.name = name;
         this.key = key;
         this.dni = dni;
@@ -18,5 +19,9 @@ public abstract class User {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Nombre: " + this.name + "\n" + "Key: " + this.key + "\n" + "DNI: " + this.dni + "\n" + "E-Mail: " + this.email;
+    }
 
 }

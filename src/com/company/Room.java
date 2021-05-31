@@ -7,13 +7,18 @@ public class Room {
     AvailableRoom available;
     boolean occupiedRoom;
 
-    public Room (){}
+    public Room() {
+    }
 
-    public Room (int roomNumber, RoomType type, AvailableRoom available, boolean occupiedRoom){
+    public Room(int roomNumber, RoomType type, AvailableRoom available, boolean occupiedRoom) {
         this.roomNumber = roomNumber;
         this.type = type;
         this.available = available;
         this.occupiedRoom = occupiedRoom;
     }
 
+    @Override
+    public String toString() {
+        return "Tipo: " + this.type + "\n" + "Disponibilidad: " + this.available + "\n" + "Estado: " + this.occupiedRoom;
+    }
 }

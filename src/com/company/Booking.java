@@ -15,5 +15,4 @@ public class Booking {
     }
 
 
-    /// metodo agregar reserva
 }

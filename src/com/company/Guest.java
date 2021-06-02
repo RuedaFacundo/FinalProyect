@@ -3,6 +3,7 @@ package com.company;
 public class Guest {
 
     private String name;
+    private int dni;
     private int phone;
     private String address;
     private int roomNumber;
@@ -11,12 +12,17 @@ public class Guest {
     public Guest() {
     }
 
-    public Guest(String name, int phone, String address, int roomNumber, String origin) {
+    public Guest(String name, int dni, int phone, String address, int roomNumber, String origin) {
         this.name = name;
+        this.dni = dni;
         this.phone = phone;
         this.address = address;
         this.roomNumber = roomNumber;
         this.origin = origin;
+    }
+
+    public int getDni() {
+        return dni;
     }
 
     @Override

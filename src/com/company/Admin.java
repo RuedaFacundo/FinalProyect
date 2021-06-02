@@ -11,7 +11,6 @@ public class Admin extends User {
         super(name, key, dni, phone, email);
     }
 
-    /// metodo agregar admin
     /// metodo agregar recepcionista
     /// metodo agregar reserva
     /// metodo back up de informacion

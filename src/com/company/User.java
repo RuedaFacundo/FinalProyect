@@ -19,6 +19,10 @@ public abstract class User {
         this.email = email;
     }
 
+    public int getDni() {
+        return dni;
+    }
+
     @Override
     public String toString() {
         return "Nombre: " + this.name + "\n" + "Key: " + this.key + "\n" + "DNI: " + this.dni + "\n" + "E-Mail: " + this.email;

@@ -2,5 +2,8 @@ package com.company;
 
 public enum AvailableRoom {
 
-    AVAILABLE, CLEANING, REPAIR, DISINFECTION;
+    AVAILABLE,
+    CLEANING,
+    REPAIR,
+    DISINFECTION;
 }

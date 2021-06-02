@@ -17,6 +17,10 @@ public class Room {
         this.occupiedRoom = occupiedRoom;
     }
 
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
     @Override
     public String toString() {
         return "Tipo: " + this.type + "\n" + "Disponibilidad: " + this.available + "\n" + "Estado: " + this.occupiedRoom;

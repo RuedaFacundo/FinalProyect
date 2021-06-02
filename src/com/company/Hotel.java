@@ -23,26 +23,48 @@ public class Hotel {
     }
 
     public void addAdmin(Admin admin) {
-        adminList.add(admin);
+        for (Admin administrator: adminList){
+            if (administrator.getDni() != admin.getDni()){
+                adminList.add(admin);
+            } else {
+                System.out.println("El administrador ya esta cargado");
+            }
+        }
     }
 
     public void addGuest(Guest guest) {
-        guestList.add(guest);
+        for (Guest customer: guestList){
+            if (customer.getDni() != guest.getDni()){
+                guestList.add(guest);
+            } else {
+                System.out.println("El cliente ya esta cargado en el sistema");
+            }
+        }
     }
 
     public void addRecepcionist(Receptionist receptionist) {
-        receptionistList.add(receptionist);
+        for (Receptionist recep: receptionistList){
+            if (recep.getDni() != receptionist.getDni()){
+                receptionistList.add(receptionist);
+            } else {
+                System.out.println("El recepcionista ya esta cargado");
+            }
+        }
     }
 
     public void addRoom(Room room) {
-        roomList.add(room);
+        for (Room roomNro: roomList){
+            if (roomNro.getRoomNumber() != room.getRoomNumber()){
+                roomList.add(room);
+            } else {
+                System.out.println("El numero de habitacion ya esta cargado");
+            }
+        }
     }
 
     public void addBooking(Booking booking) {
         bookingList.add(booking);
     }
-
-
 
 
 }

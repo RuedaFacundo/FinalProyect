@@ -12,8 +12,8 @@ public class Frame extends JFrame {
         int heightScreen = screenSize.height;
         int widhtScreen = screenSize.width;
 
-        setSize(heightScreen/2, widhtScreen/2);
-        setLocation(heightScreen/4, widhtScreen/4);
+        setSize(widhtScreen/2, heightScreen/2);
+        setLocation(widhtScreen/4, heightScreen/4);
 
         setTitle("Hotel - Gestion de Reservas");
 
@@ -21,6 +21,9 @@ public class Frame extends JFrame {
         setIconImage(miIcon);
 
         Lamina lamina = new Lamina();
+        lamina.setBackground(Color.CYAN);
         add(lamina);
+
+
     }
 }

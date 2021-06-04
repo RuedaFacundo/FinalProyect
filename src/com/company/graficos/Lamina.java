@@ -17,10 +17,8 @@ public class Lamina extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         Font myFont = new Font("Arial", Font.BOLD, 26);
-
         g2.setFont(myFont);
-
-        g2.drawString("Iniciar sesion", 100, 100);
+        g2.drawString("Iniciar sesion", 100, 20);
 
         try{
             imagen = ImageIO.read(new File("src/com/company/graficos/hotel.png"));
@@ -28,7 +26,10 @@ public class Lamina extends JPanel {
             System.out.println("La imagen no se encuentra");
         }
 
-        g2.drawImage(imagen, 5, 5, null);
+        g2.drawImage(imagen, 0, 0, null);
+
+        TextArea txt = new TextArea();
+        add(txt);
 
 
     }

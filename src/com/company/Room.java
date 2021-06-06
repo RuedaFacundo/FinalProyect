@@ -2,7 +2,7 @@ package com.company;
 
 public class Room {
 
-    private int roomNumber;
+    protected int roomNumber;
     RoomType type;
     AvailableRoom available;
     boolean occupiedRoom;

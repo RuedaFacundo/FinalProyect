@@ -11,16 +11,18 @@ public class Hotel {
     private List<Room> roomList = new ArrayList<>();
     private List<Guest> guestList = new ArrayList<>();
     private List<Booking> bookingList = new ArrayList<>();
+    private List<Payment> paymentList = new ArrayList<>();
 
     public Hotel() {
     }
 
-    public Hotel(List<Admin> adminList, List<Receptionist> receptionistList, List<Room> roomList, List<Guest> guestList, List<Booking> bookingList) {
+    public Hotel(List<Admin> adminList, List<Receptionist> receptionistList, List<Room> roomList, List<Guest> guestList, List<Booking> bookingList, List<Payment> paymentList) {
         this.adminList = adminList;
         this.receptionistList = receptionistList;
         this.roomList = roomList;
         this.guestList = guestList;
         this.bookingList = bookingList;
+        this.paymentList = paymentList;
     }
 
     public void addAdmin(Admin admin) {
@@ -90,6 +92,18 @@ public class Hotel {
         for (Receptionist receptionist : receptionistList) {
             System.out.println(receptionist);
         }
-
     }
+
+    public void checkIn (Room room){
+        room.occupiedRoom = true;
+    }
+
+    public void checkOut (Room room){
+        room.occupiedRoom = false;
+    }
+
+    public void addPayment (Payment payment){
+        paymentList.add(payment);
+    }
+
 }

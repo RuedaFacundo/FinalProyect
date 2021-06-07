@@ -51,5 +51,4 @@ public class Booking extends Room {
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-/// metodo agregar reserva
 }

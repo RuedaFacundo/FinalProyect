@@ -21,6 +21,13 @@ public class Room {
         return roomNumber;
     }
 
+    public boolean isAvailable (){
+        if (available == AvailableRoom.AVAILABLE){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Tipo: " + this.type + "\n" + "Disponibilidad: " + this.available + "\n" + "Estado: " + this.occupiedRoom;

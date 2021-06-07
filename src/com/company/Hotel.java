@@ -12,7 +12,7 @@ public class Hotel {
     private List<Guest> guestList = new ArrayList<>();
     private List<Booking> bookingList = new ArrayList<>();
 
-    public Hotel (){
+    public Hotel() {
     }
 
     public Hotel(List<Admin> adminList, List<Receptionist> receptionistList, List<Room> roomList, List<Guest> guestList, List<Booking> bookingList) {
@@ -24,8 +24,8 @@ public class Hotel {
     }
 
     public void addAdmin(Admin admin) {
-        for (Admin administrator: adminList){
-            if (administrator.getDni() != admin.getDni()){
+        for (Admin administrator : adminList) {
+            if (administrator.getDni() != admin.getDni()) {
                 adminList.add(admin);
             } else {
                 System.out.println("El administrador ya esta cargado");
@@ -34,8 +34,8 @@ public class Hotel {
     }
 
     public void addGuest(Guest guest) {
-        for (Guest customer: guestList){
-            if (customer.getDni() != guest.getDni()){
+        for (Guest customer : guestList) {
+            if (customer.getDni() != guest.getDni()) {
                 guestList.add(guest);
             } else {
                 System.out.println("El cliente ya esta cargado en el sistema");
@@ -44,8 +44,8 @@ public class Hotel {
     }
 
     public void addRecepcionist(Receptionist receptionist) {
-        for (Receptionist recep: receptionistList){
-            if (recep.getDni() != receptionist.getDni()){
+        for (Receptionist recep : receptionistList) {
+            if (recep.getDni() != receptionist.getDni()) {
                 receptionistList.add(receptionist);
             } else {
                 System.out.println("El recepcionista ya esta cargado");
@@ -64,9 +64,8 @@ public class Hotel {
     }
 
     public void addBooking(Guest guest, Room room, LocalDate checkIn, LocalDate checkOut) {
-        Booking booking = new Booking();
-
         if (room.available == AvailableRoom.AVAILABLE) {
+            Booking booking = new Booking();
             booking.setGuest(guest);
             booking.roomNumber = room.roomNumber;
             booking.setCheckInDate(checkIn);
@@ -75,5 +74,22 @@ public class Hotel {
         }
     }
 
+    public void showGuestList() {
+        for (Guest guest : guestList) {
+            System.out.println(guest);
+        }
+    }
 
+    public void showAdminList() {
+        for (Admin admin : adminList) {
+            System.out.println(admin);
+        }
+    }
+
+    public void showReceptionistList() {
+        for (Receptionist receptionist : receptionistList) {
+            System.out.println(receptionist);
+        }
+
+    }
 }

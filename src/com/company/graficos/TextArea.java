@@ -1,6 +1,5 @@
 package com.company.graficos;
 
-import com.company.DniLength;
 import com.company.EmailException;
 
 import javax.swing.*;
@@ -9,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class TextArea extends JPanel {
 
-    private JTextField oneField;
-    private JTextField secondField;
+    private final JTextField oneField;
+    private final JTextField secondField;
 
 
     public TextArea (){
@@ -19,8 +18,8 @@ public class TextArea extends JPanel {
         add(email);
         oneField = new JTextField(20);
         add(oneField);
-        JLabel contraseña = new JLabel("Contraseña:");
-        add(contraseña);
+        JLabel password = new JLabel("Contraseña:");
+        add(password);
         secondField = new JTextField(20);
         add(secondField);
 
@@ -57,7 +56,7 @@ public class TextArea extends JPanel {
                 }
             }
 
-            if(correo == true){
+            if(correo){
                 System.out.println("Email correcto");
             } else {
                 throw new EmailException("El email debe contener el caracter @ ");

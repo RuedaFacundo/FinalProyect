@@ -6,8 +6,8 @@ import java.util.List;
 public class Guest {
 
     private String name;
-    private int dni;
-    private int phone;
+    private String dni;
+    private String phone;
     private String address;
     private int roomNumber;
     private String origin;
@@ -16,9 +16,13 @@ public class Guest {
     public Guest() {
     }
 
-    public Guest(String name, int dni, int phone, String address, int roomNumber, String origin, List <Consumption> consumptionList) {
+    public Guest(String name, String dni, String phone, String address, int roomNumber, String origin, List <Consumption> consumptionList) {
         this.name = name;
-        this.dni = dni;
+        try{
+            examineDni(dni);
+        } catch (Exception e){
+            System.out.println("Ingrese correctamente el DNI");
+        }
         this.phone = phone;
         this.address = address;
         this.roomNumber = roomNumber;
@@ -26,7 +30,7 @@ public class Guest {
         this.consumptionList = consumptionList;
     }
 
-    public int getDni() {
+    public String getDni() {
         return dni;
     }
 
@@ -37,6 +41,14 @@ public class Guest {
     public void showConsumption (){
         for (Consumption consumption : consumptionList){
             System.out.println(consumption);
+        }
+    }
+
+    public void examineDni (String dni) throws DniLength{
+        if(dni.length()>8){
+            throw new DniLength("El DNI no puede contener mas de 8 caracteres");
+        } else {
+            this.dni = dni;
         }
     }
 

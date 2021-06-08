@@ -1,5 +1,8 @@
 package com.company.graficos;
 
+import com.company.DniLength;
+import com.company.EmailException;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,23 +39,31 @@ public class TextArea extends JPanel {
         @Override
         public void actionPerformed (ActionEvent e){
 
-            boolean email = false;
-
             String correo = oneField.getText().trim();
-            for(int i=0; i<correo.length(); i++){
-                if(correo.charAt(i)=='@'){
-                    email = true;
-                }
-            }
-
-            if(email == true){
-                System.out.println("Email correcto");
-            } else {
-                System.out.println("Email incorrecto");
+            try{
+                examineEmail(correo);
+            } catch (Exception ex){
+                System.out.println("Ingrese un email correcto");
             }
 
             System.out.println("La contraseña es: " + secondField.getText().trim());
         }
+
+        public void examineEmail (String email) throws EmailException {
+            boolean correo = false;
+            for(int i=0; i<email.length(); i++){
+                if(email.charAt(i)=='@'){
+                    correo = true;
+                }
+            }
+
+            if(correo == true){
+                System.out.println("Email correcto");
+            } else {
+                throw new EmailException("El email debe contener el caracter @ ");
+            }
+        }
+
     }
 
 }

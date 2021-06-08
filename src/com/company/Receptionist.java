@@ -6,10 +6,8 @@ public class Receptionist extends User {
         super();
     }
 
-    public Receptionist (String name, String key, int dni, int phone, String email){
+    public Receptionist (String name, String key, String dni, String phone, String email){
         super(name, key, dni, phone, email);
     }
 
-    /// metodo chequear reserva
-    /// metodo verificar disponibilidad de habitacion
 }

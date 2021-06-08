@@ -4,14 +4,14 @@ public abstract class User {
 
     private String name;
     private String key;
-    private int dni;
-    private int phone;
+    private String dni;
+    private String phone;
     private String email;
 
     public User() {
     }
 
-    public User(String name, String key, int dni, int phone, String email) {
+    public User(String name, String key, String dni, String phone, String email) {
         this.name = name;
         this.key = key;
         this.dni = dni;
@@ -19,7 +19,7 @@ public abstract class User {
         this.email = email;
     }
 
-    public int getDni() {
+    public String getDni() {
         return dni;
     }
 

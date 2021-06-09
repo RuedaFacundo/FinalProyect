@@ -57,7 +57,6 @@ public class TextArea extends JPanel {
             } else if (user.equals("recepcionista@hotel.com") && password.equals("recepcion123")) {
                 System.out.println("Login Recepcionista exitoso!");
             }
-
         }
 
         public void examineEmail (String email) throws EmailException {
@@ -74,7 +73,6 @@ public class TextArea extends JPanel {
                 throw new EmailException("El email debe contener el caracter @ ");
             }
         }
-
     }
 
 }

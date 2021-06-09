@@ -1,6 +1,7 @@
 package com.company.Models;
 
 import com.company.Enum.AvailableRoom;
+import com.company.Exception.BookingException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -67,14 +68,21 @@ public class Hotel {
         }
     }
 
-    public void addBooking(Guest guest, Room room, LocalDate checkIn, LocalDate checkOut) {
+    public void addBooking(Guest guest, Room room, LocalDate checkIn, LocalDate checkOut) throws BookingException {
         if (room.available == AvailableRoom.AVAILABLE) {
             Booking booking = new Booking();
             booking.setGuest(guest);
             booking.roomNumber = room.roomNumber;
             booking.setCheckInDate(checkIn);
             booking.setCheckOutDate(checkOut);
-            bookingList.add(booking);
+            for (Booking b : bookingList) {
+                if ((b.getRoomNumber() == booking.getRoomNumber()) && (b.getCheckInDate() != booking.getCheckInDate())) {
+                    bookingList.add(booking);
+                } else {
+                    throw new BookingException("La habitación se encuentra ocupada en esa fecha!");
+                }
+            }
+
         }
     }
 

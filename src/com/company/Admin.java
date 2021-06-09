@@ -27,17 +27,15 @@ public class Admin extends User implements Serializable {
         }
     }
 
-    public void readFile () throws FileNotFoundException {
+    public void readFile () {
         Gson gson = new Gson();
         try{
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             Admin admin = gson.fromJson(bufferedReader, Admin.class);
             System.out.println(admin);
-        } catch (FileNotFoundException e){
+        } catch (IOException e){
             System.out.println("No se pudo abrir el archivo" + e.getMessage());
         }
     }
-
-
 
 }

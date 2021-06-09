@@ -21,6 +21,10 @@ public class Room {
         return roomNumber;
     }
 
+    public AvailableRoom getAvailable() {
+        return available;
+    }
+
     public boolean isAvailable (){
         if (available == AvailableRoom.AVAILABLE){
             return true;

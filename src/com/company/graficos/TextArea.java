@@ -3,6 +3,7 @@ package com.company.graficos;
 import com.company.Exception.EmailException;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,23 +15,24 @@ public class TextArea extends JPanel {
 
     public TextArea (){
 
-        JLabel email = new JLabel("Email:");
-        add(email);
-        oneField = new JTextField(20);
-        add(oneField);
-        JLabel password = new JLabel("Contraseña:");
-        add(password);
-        secondField = new JTextField(20);
-        add(secondField);
+        JPanel lamina_superior = new JPanel();
+        lamina_superior.setLayout(new GridLayout(2, 2));
 
+        JLabel email = new JLabel("Email:");
+        lamina_superior.add(email);
+        oneField = new JTextField(15);
+        lamina_superior.add(oneField);
+        JLabel password = new JLabel("Contraseña:");
+        lamina_superior.add(password);
+        secondField = new JPasswordField(15);
+        lamina_superior.add(secondField);
 
         JButton login = new JButton("Login");
         GetText event = new GetText();
-
         login.addActionListener(event);
-        add(login);
-
-
+        lamina_superior.setBackground(Color.CYAN);
+        add(lamina_superior, BorderLayout.CENTER);
+        add(login, BorderLayout.SOUTH);
     }
 
     private class GetText implements ActionListener {

@@ -20,9 +20,13 @@ public class Frame extends JFrame {
         Image miIcon = window.getImage("src/com/company/graficos/icono.png");
         setIconImage(miIcon);
 
-        Lamina lamina = new Lamina();
-        lamina.setBackground(Color.CYAN);
-        add(lamina);
+        ///Lamina lamina = new Lamina();
+        ///lamina.setBackground(Color.CYAN);
+        ///add(lamina);
+
+        TextArea txt = new TextArea();
+        txt.setBackground(Color.CYAN);
+        add(txt);
 
 
     }

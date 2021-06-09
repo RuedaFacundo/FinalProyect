@@ -39,13 +39,23 @@ public class TextArea extends JPanel {
         public void actionPerformed (ActionEvent e){
 
             String correo = oneField.getText().trim();
-            try{
+            try {
                 examineEmail(correo);
-            } catch (Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Ingrese un email correcto");
             }
 
             System.out.println("La contraseña es: " + secondField.getText().trim());
+
+            String user = oneField.getText();
+            String password = secondField.getText();
+
+            if (user.equals("admin@admin.com") && password.equals("admin123")) {
+                System.out.println("Login Admin exitoso!");
+            } else if (user.equals("recepcionista@hotel.com") && password.equals("recepcion123")) {
+                System.out.println("Login Recepcionista exitoso!");
+            }
+
         }
 
         public void examineEmail (String email) throws EmailException {

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Models;
 
 import com.google.gson.Gson;
 

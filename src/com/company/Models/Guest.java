@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Models;
+
+import com.company.Exception.DniLength;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,7 @@ public class Guest {
         }
     }
 
-    public void examineDni (String dni) throws DniLength{
+    public void examineDni (String dni) throws DniLength {
         if(dni.length()>8){
             throw new DniLength("El DNI no puede contener mas de 8 caracteres");
         } else {

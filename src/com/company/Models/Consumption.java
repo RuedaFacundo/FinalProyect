@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Models;
+
+import com.company.Enum.ConsumptionType;
 
 public class Consumption {
 

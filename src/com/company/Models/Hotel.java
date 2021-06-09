@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Models;
+
+import com.company.Enum.AvailableRoom;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

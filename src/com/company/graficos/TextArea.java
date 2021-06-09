@@ -1,6 +1,6 @@
 package com.company.graficos;
 
-import com.company.EmailException;
+import com.company.Exception.EmailException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

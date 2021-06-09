@@ -1,4 +1,7 @@
-package com.company;
+package com.company.Models;
+
+import com.company.Enum.AvailableRoom;
+import com.company.Enum.RoomType;
 
 public class Room {
 
@@ -26,10 +29,11 @@ public class Room {
     }
 
     public boolean isAvailable (){
+        boolean result = false;
         if (available == AvailableRoom.AVAILABLE){
-            return true;
+            result = true;
         }
-        return false;
+        return result;
     }
 
     @Override

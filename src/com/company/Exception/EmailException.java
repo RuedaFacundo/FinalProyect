@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Exception;
 
 public class EmailException extends Exception {
 

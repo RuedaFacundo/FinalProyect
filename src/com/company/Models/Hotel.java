@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Models;
+
+import com.company.Enum.AvailableRoom;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class Hotel {
 
     public void addAdmin(Admin admin) {
         for (Admin administrator : adminList) {
-            if (administrator.getDni() != admin.getDni()) {
+            if (administrator.getDni().equals(admin.getDni())) {
                 adminList.add(admin);
             } else {
                 System.out.println("El administrador ya esta cargado");
@@ -37,7 +39,7 @@ public class Hotel {
 
     public void addGuest(Guest guest) {
         for (Guest customer : guestList) {
-            if (customer.getDni() != guest.getDni()) {
+            if (customer.getDni().equals(guest.getDni())) {
                 guestList.add(guest);
             } else {
                 System.out.println("El cliente ya esta cargado en el sistema");
@@ -47,7 +49,7 @@ public class Hotel {
 
     public void addRecepcionist(Receptionist receptionist) {
         for (Receptionist recep : receptionistList) {
-            if (recep.getDni() != receptionist.getDni()) {
+            if (recep.getDni().equals(receptionist.getDni())) {
                 receptionistList.add(receptionist);
             } else {
                 System.out.println("El recepcionista ya esta cargado");
@@ -82,15 +84,61 @@ public class Hotel {
         }
     }
 
+    public void showGuest(Guest customer) {
+        for (Guest guest : guestList) {
+            if(customer.getDni().equals(guest.getDni())){
+                System.out.println(guest);
+            }
+        }
+    }
+
     public void showAdminList() {
         for (Admin admin : adminList) {
             System.out.println(admin);
         }
     }
 
+    public void showAdmin(Admin administrator) {
+        for (Admin admin : adminList) {
+            if(admin.getDni().equals(administrator.getDni())){
+                System.out.println(admin);
+            }
+        }
+    }
+
     public void showReceptionistList() {
         for (Receptionist receptionist : receptionistList) {
             System.out.println(receptionist);
+        }
+    }
+
+    public void showReceptionist(Receptionist recep) {
+        for (Receptionist receptionist : receptionistList) {
+            if(receptionist.getDni().equals(recep.getDni())){
+                System.out.println(receptionist);
+            }
+        }
+    }
+
+    public void showBookingList() {
+        for (Booking booking : bookingList) {
+            System.out.println(booking);
+        }
+    }
+
+    public void showBookingDay(Booking bookingDay) {
+        for (Booking booking : bookingList) {
+            if(booking.getCheckInDate().compareTo(bookingDay.getCheckInDate()) == 0){
+                System.out.println(booking);
+            }
+        }
+    }
+
+    public void showRoomAvailable(AvailableRoom available) {
+        for (Room room : roomList) {
+            if(available.equals(room.getAvailable())){
+                System.out.println(room);
+            }
         }
     }
 

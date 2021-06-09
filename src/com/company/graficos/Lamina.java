@@ -18,6 +18,7 @@ public class Lamina extends JPanel {
 
         Font myFont = new Font("Arial", Font.BOLD, 26);
         g2.setFont(myFont);
+
         g2.drawString("Iniciar sesion", 100, 20);
 
         try{
@@ -27,10 +28,6 @@ public class Lamina extends JPanel {
         }
 
         g2.drawImage(imagen, 0, 0, null);
-
-        TextArea txt = new TextArea();
-        add(txt);
-
 
     }
 }

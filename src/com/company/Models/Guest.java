@@ -1,7 +1,9 @@
 package com.company.Models;
 
 import com.company.Exception.DniLength;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +53,29 @@ public class Guest {
             throw new DniLength("El DNI no puede contener mas de 8 caracteres");
         } else {
             this.dni = dni;
+        }
+    }
+
+    File file = new File("guest.json");
+
+    public void writeFile (Guest guest)  {
+        Gson gson = new Gson();
+        try{
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+            gson.toJson(guest, Guest.class, bufferedWriter);
+        } catch (IOException e){
+            System.out.println("El archivo no se pudo escribir" + e.getMessage());
+        }
+    }
+
+    public void readFile () {
+        Gson gson = new Gson();
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            Guest guest = gson.fromJson(bufferedReader, Guest.class);
+            System.out.println(guest);
+        } catch (IOException e){
+            System.out.println("No se pudo abrir el archivo" + e.getMessage());
         }
     }
 

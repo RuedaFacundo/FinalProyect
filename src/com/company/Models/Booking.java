@@ -2,7 +2,9 @@ package com.company.Models;
 
 import com.company.Enum.AvailableRoom;
 import com.company.Enum.RoomType;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.time.LocalDate;
 
 public class Booking extends Room {
@@ -54,4 +56,33 @@ public class Booking extends Room {
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
+
+    File file = new File("booking.json");
+
+    public void writeFile (Booking booking)  {
+        Gson gson = new Gson();
+        try{
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+            gson.toJson(booking, Booking.class, bufferedWriter);
+        } catch (IOException e){
+            System.out.println("El archivo no se pudo escribir" + e.getMessage());
+        }
+    }
+
+    public void readFile () {
+        Gson gson = new Gson();
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            Booking booking = gson.fromJson(bufferedReader, Booking.class);
+            System.out.println(booking);
+        } catch (IOException e){
+            System.out.println("No se pudo abrir el archivo" + e.getMessage());
+        }
+    }
+
+    @Override
+    public String toString(){
+        return "Booking: " + super.toString() + "\n" + "Check In: " + this.checkInDate + "\n" + "Check Out: " + this.checkOutDate + "\n" + "Cliente: " + guest.toString() + "\n";
+    }
+
 }

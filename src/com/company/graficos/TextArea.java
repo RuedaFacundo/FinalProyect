@@ -16,7 +16,7 @@ public class TextArea extends JPanel {
     public TextArea (){
 
         JPanel lamina_superior = new JPanel();
-        lamina_superior.setLayout(new GridLayout(2, 2));
+        lamina_superior.setLayout(new GridLayout(2, 2, 2, 2));
 
         JLabel email = new JLabel("Email:");
         lamina_superior.add(email);
@@ -27,12 +27,14 @@ public class TextArea extends JPanel {
         secondField = new JPasswordField(15);
         lamina_superior.add(secondField);
 
-        JButton login = new JButton("Login");
-        GetText event = new GetText();
-        login.addActionListener(event);
         lamina_superior.setBackground(Color.CYAN);
         add(lamina_superior, BorderLayout.CENTER);
+
+        JButton login = new JButton("Login");
+        GetText event = new GetText();
         add(login, BorderLayout.SOUTH);
+        login.addActionListener(event);
+
     }
 
     private class GetText implements ActionListener {
@@ -54,9 +56,19 @@ public class TextArea extends JPanel {
 
             if (user.equals("admin@admin.com") && password.equals("admin123")) {
                 System.out.println("Login Admin exitoso!");
+                AdminFrame admin = new AdminFrame();
+                admin.setVisible(true);
+                admin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             } else if (user.equals("recepcionista@hotel.com") && password.equals("recepcion123")) {
                 System.out.println("Login Recepcionista exitoso!");
+                RecepFrame recep = new RecepFrame();
+                recep.setVisible(true);
+                recep.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            } else {
+                System.out.println("Login erroneo!");
             }
+
+
         }
 
         public void examineEmail (String email) throws EmailException {

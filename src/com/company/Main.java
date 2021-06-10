@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.graficos.Frame;
-import com.company.graficos.Lamina;
 
 import javax.swing.*;
 

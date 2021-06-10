@@ -3,9 +3,9 @@ package com.company.graficos;
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame extends JFrame {
+public class AdminFrame extends JFrame {
 
-    public Frame (){
+    public AdminFrame (){
         Toolkit window = Toolkit.getDefaultToolkit();
         Dimension screenSize = window.getScreenSize();
 
@@ -15,14 +15,14 @@ public class Frame extends JFrame {
         setSize(widhtScreen/2, heightScreen/2);
         setLocation(widhtScreen/4, heightScreen/4);
 
-        setTitle("Hotel - Gestion de Reservas");
+        setTitle("Hotel - Gestion de Reservas - Administrador");
 
         Image miIcon = window.getImage("src/com/company/graficos/icono.png");
         setIconImage(miIcon);
 
-        TextArea txt = new TextArea();
-        txt.setBackground(Color.CYAN);
-        add(txt);
+        AdminMenu menu = new AdminMenu();
+        menu.setBackground(Color.CYAN);
+        add(menu);
 
 
     }

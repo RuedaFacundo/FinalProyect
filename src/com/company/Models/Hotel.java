@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.company.Enum.RoomType.DOUBLE;
+import static com.company.Enum.RoomType.SIMPLE;
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class Hotel {
 
     private List<Admin> adminList = new ArrayList<>();
@@ -150,8 +154,16 @@ public class Hotel {
         }
     }
 
-    public void checkIn (Room room){
+    public void checkIn (Room room, Booking booking, Guest guest){
         room.occupiedRoom = true;
+        long days = daysBetween(booking.getCheckInDate(), booking.getCheckOutDate());
+        if(room.type == SIMPLE){
+            Payment pay = new Payment(days, 1500, guest);
+            addPayment(pay);
+        } else if (room.type == DOUBLE) {
+            Payment pay = new Payment(days, 2500, guest);
+            addPayment(pay);
+        }
     }
 
     public void checkOut (Room room){
@@ -160,6 +172,10 @@ public class Hotel {
 
     public void addPayment (Payment payment){
         paymentList.add(payment);
+    }
+
+    public long daysBetween(LocalDate start, LocalDate end){
+        return DAYS.between(start, end);
     }
 
 }

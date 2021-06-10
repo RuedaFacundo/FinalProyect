@@ -65,6 +65,7 @@ public class TextArea extends JPanel {
                 recep.setVisible(true);
                 recep.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             } else {
+                JOptionPane.showMessageDialog(null, "Login Erroneo. Intente nuevamente!");
                 System.out.println("Login erroneo!");
             }
 

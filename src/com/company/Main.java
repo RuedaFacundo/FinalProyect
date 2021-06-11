@@ -7,6 +7,10 @@ import com.company.Models.*;
 import com.company.graficos.Frame;
 
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,12 +72,19 @@ public class Main {
         Booking reser = new Booking(r1, 15, LocalDate.of(2021, 6, 21), LocalDate.of(2021, 6, 29), Alvaro);
 
         hotel.addBooking(reser);
-        hotel.showBookingList();
+       /// hotel.showBookingList();
 
         Facundo.checkIn(reser, paymentList);
-        hotel.showPaymentList();
+      ///  hotel.showPaymentList();
 
-        hotel.showRoomOccupied();
+        ///hotel.showRoomOccupied();
 
+        File Adminfile = new File("C:/Users/facun/OneDrive/Desktop/Programacion3/Proyecto Final - Gestion de Reservas/src/com/company/File/admin");
+        ///Facundo.writeFile(Facundo, Adminfile);
+
+        Admin Franco = new Admin("Franco", "922", "33617737", "155002111", "franco@gmail.com");
+        hotel.addAdmin(Franco);
+       /// Franco.writeFile(Franco, Adminfile);
+       /// Facundo.readFile(Adminfile);
     }
 }

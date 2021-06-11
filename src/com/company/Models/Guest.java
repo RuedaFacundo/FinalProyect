@@ -56,29 +56,6 @@ public class Guest {
         }
     }
 
-    File file = new File("guest.json");
-
-    public void writeFile (Guest guest)  {
-        Gson gson = new Gson();
-        try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-            gson.toJson(guest, Guest.class, bufferedWriter);
-        } catch (IOException e){
-            System.out.println("El archivo no se pudo escribir" + e.getMessage());
-        }
-    }
-
-    public void readFile () {
-        Gson gson = new Gson();
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            Guest guest = gson.fromJson(bufferedReader, Guest.class);
-            System.out.println(guest);
-        } catch (IOException e){
-            System.out.println("No se pudo abrir el archivo" + e.getMessage());
-        }
-    }
-
     @Override
     public String toString() {
         return "Nombre: " + this.name + "\n" + "Teléfono: " + this.phone + "\n" + "Dirección: " + this.address + "\n" + "Nro de Habitación: " + this.roomNumber + "\n" + "Lugar de origen: " + this.origin + "\n" + "Consumos: " + consumptionList.toString();

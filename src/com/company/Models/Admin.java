@@ -6,10 +6,9 @@ import com.google.gson.Gson;
 import java.time.LocalDate;
 import java.io.File;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static com.company.Enum.RoomType.DOUBLE;
-import static com.company.Enum.RoomType.SIMPLE;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Admin extends User implements Serializable, Check {
@@ -49,16 +48,14 @@ public class Admin extends User implements Serializable, Check {
         booking.getGuest().showConsumption();
     }
 
-    File file = new File("C:/Users/facun/OneDrive/Desktop/Programacion3/Proyecto Final - Gestion de Reservas/src/com/company/File/admin.json");
-
-
-    public void writeFile (Admin admin)  {
+    public void writeFile (Admin admin, File file)  {
         if(file.exists()){
-            System.out.println("El archivo existe");
-            Gson gson = new Gson();
             try{
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-                gson.toJson(admin, Admin.class, bufferedWriter);
+                FileWriter fileWriter = new FileWriter(file, true);
+                Gson objGson = new Gson();
+                String strJson = objGson.toJson(admin);
+                fileWriter.write(strJson);
+                fileWriter.close();
             } catch (IOException e){
                 System.out.println("El archivo no se pudo escribir" + e.getMessage());
             }
@@ -68,12 +65,13 @@ public class Admin extends User implements Serializable, Check {
 
     }
 
-    public void readFile () {
-        Gson gson = new Gson();
+    public void readFile (File file) {
         try{
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            Gson gson = new Gson();
             Admin admin = gson.fromJson(bufferedReader, Admin.class);
             System.out.println(admin);
+            bufferedReader.close();
         } catch (IOException e){
             System.out.println("No se pudo abrir el archivo" + e.getMessage());
         }

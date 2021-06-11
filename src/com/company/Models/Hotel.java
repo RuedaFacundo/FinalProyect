@@ -92,6 +92,7 @@ public class Hotel {
         } else {
             System.out.println("No se pudo realizar la reserva");
         }
+        System.out.println(booking.isOccupiedRoom());
     }
 
     public void showGuestList() {

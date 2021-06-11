@@ -32,6 +32,10 @@ public class Room {
         this.occupiedRoom = occupiedRoom;
     }
 
+    public boolean isOccupiedRoom() {
+        return occupiedRoom;
+    }
+
     public RoomType getType() {
         return type;
     }
@@ -46,6 +50,6 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Tipo: " + this.type + "\n" + "Disponibilidad: " + this.available + "\n" + "Estado: " + this.occupiedRoom;
+        return "Habitacion: " + this.roomNumber + "\n" + "Tipo: " + this.type + "\n" + "Disponibilidad: " + this.available + "\n" + "Estado: " + this.occupiedRoom;
     }
 }

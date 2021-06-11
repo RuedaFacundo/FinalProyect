@@ -158,4 +158,18 @@ public class Hotel {
         }
     }
 
+    public void showRoomOccupied() {
+        for (Room room : roomList) {
+            if(room.isOccupiedRoom()){
+                System.out.println(room);
+            }
+        }
+    }
+
+    public void showPaymentList() {
+        for (Payment payment : paymentList) {
+            System.out.println(payment);
+        }
+    }
+
 }

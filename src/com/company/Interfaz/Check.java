@@ -11,5 +11,4 @@ public interface Check {
     void checkIn (Booking booking, List<Payment> paymentList);
     void checkOut (Booking booking);
     long daysBetween(LocalDate start, LocalDate end);
-    void addPayment (Payment payment, List<Payment> paymentList);
 }

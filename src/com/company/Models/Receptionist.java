@@ -1,5 +1,6 @@
 package com.company.Models;
 
+import com.company.Enum.RoomType;
 import com.company.Interfaz.Check;
 import com.google.gson.Gson;
 
@@ -25,23 +26,20 @@ public class Receptionist extends User implements Check {
     public void checkIn (Booking booking, List<Payment> paymentList){
         booking.setOccupiedRoom(true);
         long days = daysBetween(booking.getCheckInDate(), booking.getCheckOutDate());
-        if(booking.getType() == SIMPLE){
+        if(booking.getType() == RoomType.SIMPLE){
             Payment pay = new Payment(days, 1500, booking.getGuest());
-            addPayment(pay, paymentList);
-        } else if (booking.getType() == DOUBLE) {
+            paymentList.add(pay);
+            System.out.println("El total pagado es: " + pay.totalPrice());
+        } else if (booking.getType() == RoomType.DOUBLE) {
             Payment pay = new Payment(days, 2500, booking.getGuest());
-            addPayment(pay, paymentList);
+            paymentList.add(pay);
+            System.out.println("El total pagado es: " + pay.totalPrice());
         }
     }
 
     @Override
     public long daysBetween(LocalDate start, LocalDate end){
         return DAYS.between(start, end);
-    }
-
-    @Override
-    public void addPayment (Payment payment, List<Payment> paymentList){
-        paymentList.add(payment);
     }
 
     @Override

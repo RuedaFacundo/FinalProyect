@@ -6,7 +6,6 @@ import com.company.Enum.RoomType;
 import com.company.Models.*;
 import com.company.graficos.Frame;
 
-
 import javax.swing.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -37,13 +36,13 @@ public class Main {
         Guest Alvaro = new Guest("Alvaro", "34095530", "156002933", "Gascon 1050", 5, "ARG", consumptionList);
 
         hotel.addAdmin(Facundo);
-        hotel.showAdminList();
+       /// hotel.showAdminList();
         hotel.addRecepcionist(Hernan);
-        hotel.showReceptionistList();
+      ///  hotel.showReceptionistList();
         Consumption consumption = new Consumption(ConsumptionType.REFRESCO, 1);
         Alvaro.addConsumption(consumption);
         hotel.addGuest(Alvaro);
-        hotel.showGuestList();
+     ///   hotel.showGuestList();
 
         Room r1 = new Room(1, RoomType.DOUBLE, AvailableRoom.AVAILABLE, false);
         Room r2 = new Room(2, RoomType.SIMPLE, AvailableRoom.AVAILABLE, false);
@@ -71,6 +70,10 @@ public class Main {
         hotel.addBooking(reser);
         hotel.showBookingList();
 
+        Facundo.checkIn(reser, paymentList);
+        hotel.showPaymentList();
+
+        hotel.showRoomOccupied();
 
     }
 }

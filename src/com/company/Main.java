@@ -5,13 +5,9 @@ import com.company.Enum.ConsumptionType;
 import com.company.Enum.RoomType;
 import com.company.Models.*;
 import com.company.graficos.Frame;
-import com.google.gson.Gson;
+
 
 import javax.swing.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

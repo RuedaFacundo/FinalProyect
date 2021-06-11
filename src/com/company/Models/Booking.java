@@ -1,7 +1,5 @@
 package com.company.Models;
 
-import com.company.Enum.AvailableRoom;
-import com.company.Enum.RoomType;
 import com.google.gson.Gson;
 
 import java.io.*;

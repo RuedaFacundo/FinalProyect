@@ -1,16 +1,9 @@
 package com.company.Models;
 
 import com.company.Enum.AvailableRoom;
-import com.company.Exception.BookingException;
-import com.company.Exception.DniLength;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.company.Enum.RoomType.DOUBLE;
-import static com.company.Enum.RoomType.SIMPLE;
-import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Hotel {
 
@@ -163,30 +156,6 @@ public class Hotel {
                 System.out.println(room);
             }
         }
-    }
-
-    public void checkIn (Room room, Booking booking, Guest guest){
-        room.occupiedRoom = true;
-        long days = daysBetween(booking.getCheckInDate(), booking.getCheckOutDate());
-        if(room.type == SIMPLE){
-            Payment pay = new Payment(days, 1500, guest);
-            addPayment(pay);
-        } else if (room.type == DOUBLE) {
-            Payment pay = new Payment(days, 2500, guest);
-            addPayment(pay);
-        }
-    }
-
-    public void checkOut (Room room){
-        room.occupiedRoom = false;
-    }
-
-    public void addPayment (Payment payment){
-        paymentList.add(payment);
-    }
-
-    public long daysBetween(LocalDate start, LocalDate end){
-        return DAYS.between(start, end);
     }
 
 }

@@ -28,6 +28,14 @@ public class Room {
         return available;
     }
 
+    public void setOccupiedRoom(boolean occupiedRoom) {
+        this.occupiedRoom = occupiedRoom;
+    }
+
+    public RoomType getType() {
+        return type;
+    }
+
     public boolean isAvailable (){
         boolean result = false;
         if (available == AvailableRoom.AVAILABLE){

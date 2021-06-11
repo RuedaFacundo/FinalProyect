@@ -1,10 +1,17 @@
 package com.company.Models;
 
+import com.company.Interfaz.Check;
 import com.google.gson.Gson;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.util.List;
 
-public class Receptionist extends User {
+import static com.company.Enum.RoomType.DOUBLE;
+import static com.company.Enum.RoomType.SIMPLE;
+import static java.time.temporal.ChronoUnit.DAYS;
+
+public class Receptionist extends User implements Check {
 
     public Receptionist (){
         super();
@@ -12,6 +19,35 @@ public class Receptionist extends User {
 
     public Receptionist (String name, String key, String dni, String phone, String email){
         super(name, key, dni, phone, email);
+    }
+
+    @Override
+    public void checkIn (Booking booking, List<Payment> paymentList){
+        booking.setOccupiedRoom(true);
+        long days = daysBetween(booking.getCheckInDate(), booking.getCheckOutDate());
+        if(booking.getType() == SIMPLE){
+            Payment pay = new Payment(days, 1500, booking.getGuest());
+            addPayment(pay, paymentList);
+        } else if (booking.getType() == DOUBLE) {
+            Payment pay = new Payment(days, 2500, booking.getGuest());
+            addPayment(pay, paymentList);
+        }
+    }
+
+    @Override
+    public long daysBetween(LocalDate start, LocalDate end){
+        return DAYS.between(start, end);
+    }
+
+    @Override
+    public void addPayment (Payment payment, List<Payment> paymentList){
+        paymentList.add(payment);
+    }
+
+    @Override
+    public void checkOut (Booking booking){
+        booking.setOccupiedRoom(false);
+        booking.getGuest().showConsumption();
     }
 
     File file = new File("receptionist.json");

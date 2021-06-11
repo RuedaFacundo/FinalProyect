@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 public class Booking extends Room {
 
+    Room room;
     private int bookingID;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
@@ -16,9 +17,8 @@ public class Booking extends Room {
 
     public Booking() {
     }
-
-    public Booking(int roomNumber, RoomType type, AvailableRoom available, boolean occupiedRoom, int bookingID, LocalDate checkInDate, LocalDate checkOutDate, Guest guest) {
-        super(roomNumber, type, available, occupiedRoom);
+    public Booking(Room room, int bookingID, LocalDate checkInDate, LocalDate checkOutDate, Guest guest) {
+        super(room.roomNumber, room.type, room.available, room.occupiedRoom);
         this.bookingID = bookingID;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;

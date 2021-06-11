@@ -1,7 +1,7 @@
 package com.company.Models;
 
 import com.google.gson.Gson;
-
+import java.io.File;
 import java.io.*;
 
 public class Admin extends User implements Serializable {
@@ -15,16 +15,23 @@ public class Admin extends User implements Serializable {
         super(name, key, dni, phone, email);
     }
 
-    File file = new File("admin.json");
+    File file = new File("C:/Users/facun/OneDrive/Desktop/Programacion3/Proyecto Final - Gestion de Reservas/src/com/company/File/admin.json");
+
 
     public void writeFile (Admin admin)  {
-        Gson gson = new Gson();
-        try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-            gson.toJson(admin, Admin.class, bufferedWriter);
-        } catch (IOException e){
-            System.out.println("El archivo no se pudo escribir" + e.getMessage());
+        if(file.exists()){
+            System.out.println("El archivo existe");
+            Gson gson = new Gson();
+            try{
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+                gson.toJson(admin, Admin.class, bufferedWriter);
+            } catch (IOException e){
+                System.out.println("El archivo no se pudo escribir" + e.getMessage());
+            }
+        } else {
+            System.out.println("El archivo no existe");
         }
+
     }
 
     public void readFile () {

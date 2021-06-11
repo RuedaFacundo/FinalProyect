@@ -2,6 +2,7 @@ package com.company.Models;
 
 import com.company.Enum.AvailableRoom;
 import com.company.Exception.BookingException;
+import com.company.Exception.DniLength;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,60 +34,70 @@ public class Hotel {
     }
 
     public void addAdmin(Admin admin) {
+        boolean exists = false;
         for (Admin administrator : adminList) {
             if (administrator.getDni().equals(admin.getDni())) {
-                adminList.add(admin);
-            } else {
                 System.out.println("El administrador ya esta cargado");
+                exists = true;
             }
+        }
+        if(!exists){
+            adminList.add(admin);
         }
     }
 
     public void addGuest(Guest guest) {
+        boolean exists = false;
         for (Guest customer : guestList) {
             if (customer.getDni().equals(guest.getDni())) {
-                guestList.add(guest);
-            } else {
+                exists = true;
                 System.out.println("El cliente ya esta cargado en el sistema");
             }
+        }
+        if(!exists){
+            guestList.add(guest);
         }
     }
 
     public void addRecepcionist(Receptionist receptionist) {
+        boolean exists = false;
         for (Receptionist recep : receptionistList) {
             if (recep.getDni().equals(receptionist.getDni())) {
-                receptionistList.add(receptionist);
-            } else {
+                exists = true;
                 System.out.println("El recepcionista ya esta cargado");
             }
+        }
+        if(!exists){
+            receptionistList.add(receptionist);
         }
     }
 
     public void addRoom(Room room) {
+        boolean exists = false;
         for (Room roomNro : roomList) {
-            if (roomNro.getRoomNumber() != room.getRoomNumber()) {
-                roomList.add(room);
-            } else {
+            if (roomNro.getRoomNumber() == room.getRoomNumber()) {
+                exists = true;
                 System.out.println("El numero de habitacion ya esta cargado");
             }
         }
+        if(!exists){
+            roomList.add(room);
+        }
     }
 
-    public void addBooking(Guest guest, Room room, LocalDate checkIn, LocalDate checkOut) throws BookingException {
-        if (room.available == AvailableRoom.AVAILABLE) {
-            Booking booking = new Booking();
-            booking.setGuest(guest);
-            booking.roomNumber = room.roomNumber;
-            booking.setCheckInDate(checkIn);
-            booking.setCheckOutDate(checkOut);
+    public void addBooking(Booking booking) {
+        boolean exists = false;
+        if(booking.getAvailable() == AvailableRoom.AVAILABLE){
             for (Booking b : bookingList) {
-                if ((b.getRoomNumber() == booking.getRoomNumber()) && (b.getCheckInDate() != booking.getCheckInDate())) {
-                    bookingList.add(booking);
-                } else {
-                    throw new BookingException("La habitación se encuentra ocupada en esa fecha!");
+                if ((b.getRoomNumber() == booking.getRoomNumber()) && (b.getCheckInDate() != booking.getCheckInDate())){
+                    exists = true;
                 }
             }
-
+        }
+        if(!exists){
+            bookingList.add(booking);
+        } else {
+            System.out.println("No se pudo realizar la reserva");
         }
     }
 
